@@ -12,11 +12,14 @@ public class WelcomeController {
   @GetMapping("/")
     public String sayHello(){
         //return "hello";
-      return "A welcome message";
+
+     // return "A welcome message";
+      return message;
     }
 
-    public WelcomeController(@Value("${WELCOME_MESSAGE}") String message){
-      //this.message = message;
-        this.message ="A welcome message";
+    public WelcomeController( //   Injects the WELCOME_MESSAGE environment variable
+            @Value("${WELCOME_MESSAGE}") String message){
+      this.message = message;
+       // this.message ="A welcome message";
     }
 }
